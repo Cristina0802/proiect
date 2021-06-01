@@ -4,8 +4,18 @@
 </head>
 <body>
 <div class="container">
-	<p>
+	<hr>
 		STUDENT: Ciubancan Cristina-Simina
-	</p>
-</body>
+	</hr>
+	<div class="row">
+		<div class="col-sm-6">
+		     	<input id="userInput" type="text" class="form-control" placeholder="Introduceti numele studentului" aria-label="User's username" aria-describedby="basic-addon2">
+		</div>
+		<div class=col-sm-6>
+			<button class="btn btn-success custom" type="button" id="addUsernameBtn" onclick="setNameCookie()">Save</button>
+			<button style="display:none;" class="btn btn-primary custom" type="button" id="editUsernameBtn" onclick="setNameCookie()">Update</button>
+		</div>
+	</div>
+			    
+</body>	
 </html>
