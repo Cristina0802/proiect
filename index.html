@@ -533,6 +533,53 @@ Tehnice din Cluj-Napoca.</span></p>
 			    
 </body>	
 <script>
+	var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+	var isFirefox = typeof InstallTrigger !== 'undefined';
+	var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
+	var isIE = /*@cc_on!@*/false || !!document.documentMode;
+	var isEdge = !isIE && !!window.StyleMedia;
+	var isChrome = !!window.chrome && (!!window.chrome.webstore || !!window.chrome.runtime);
+	var isEdgeChromium = isChrome && (navigator.userAgent.indexOf("Edg") != -1);
+	var isBlink = (isChrome || isOpera) && !!window.CSS;	
+	
+	if(isChrome && !isEdgeChromium)
+	{
+		document.cookie = "browser=chrome";
+		document.getElementById('browserCookie').innerHTML="chrome";
+	}
+	if(isOpera)
+	{
+		document.cookie = "browser=opera";
+		document.getElementById('browserCookie').innerHTML="opera";
+	}
+	if(isFirefox)
+	{
+		document.cookie = "browser=firefox";
+		document.getElementById('browserCookie').innerHTML="firefox";
+	}
+	if(isEdge || isEdgeChromium)
+	{
+		document.cookie = "browser=edge";
+		document.getElementById('browserCookie').innerHTML="edge";
+	}
+	if(isIE)
+	{
+		document.cookie = "browser=iexplorer";
+		document.getElementById('browserCookie').innerHTML="iexplorer";
+	}
+	var OSName = "Unknown";
+	if (window.navigator.userAgent.indexOf("Windows NT 10.0")!= -1) OSName="Windows 10";
+	if (window.navigator.userAgent.indexOf("Windows NT 6.3") != -1) OSName="Windows 8.1";
+	if (window.navigator.userAgent.indexOf("Windows NT 6.2") != -1) OSName="Windows 8";
+	if (window.navigator.userAgent.indexOf("Windows NT 6.1") != -1) OSName="Windows 7";
+	if (window.navigator.userAgent.indexOf("Windows NT 6.0") != -1) OSName="Windows Vista";
+	if (window.navigator.userAgent.indexOf("Windows NT 5.1") != -1) OSName="Windows XP";
+	if (window.navigator.userAgent.indexOf("Windows NT 5.0") != -1) OSName="Windows 2000";
+	if (window.navigator.userAgent.indexOf("Mac")            != -1) OSName="Mac/iOS";
+	if (window.navigator.userAgent.indexOf("X11")            != -1) OSName="UNIX";
+	if (window.navigator.userAgent.indexOf("Linux")          != -1) OSName="Linux";
+	document.cookie = "operating-system="+OSName;
+	document.getElementById('osCookie').innerHTML=OSName;
 	let expandedInfo = false;
 	function displayInfo()
 	{
