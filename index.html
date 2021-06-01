@@ -594,6 +594,35 @@ Tehnice din Cluj-Napoca.</span></p>
 			expandedInfo=false;
 		}
 	}
+	function setNameCookie(){
+		let element = document.getElementById('userInput');
+		document.cookie = "numeStudent="+element.value;
+		let btn1 = document.getElementById('addUsernameBtn');
+		btn1.style="display:none";
+		document.getElementById('userNameCookie').innerHTML=element.value;
+	}
+	
+	if(document.cookie)
+	{
+	let numeStudent =null;
+		const numeStudentKey = document.cookie
+		  .split('; ')
+		  .find(row => row.startsWith('numeStudent='));
+		   if( numeStudentKey)
+		   {
+			const numeStudent  = numeStudentKey.split('=')[1];
+		   }
+	 
+		if(numeStudent && numeStudent!=null && numeStudent!=undefined)
+		{
+			let element = document.getElementById('userInput');
+			let btn1 = document.getElementById('addUsernameBtn');
+			btn1.style="display:none";
+			
+			element.value= numeStudent;
+			document.getElementById('nameCookie').innerHTML=numeStudent;
+		}
+	}
 </script>
 </html>
 	
